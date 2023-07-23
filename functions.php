@@ -39,7 +39,7 @@ function get_location_info_ajax_handler() {
     'region' => $location_info['region'],
     'postal_code' => $location_info['postal'],
     'nearest_postal_code' => isset($nearest_postal_code_info['post code']) ? $nearest_postal_code_info['post code'] : '',
-		'place_name' => isset($nearest_postal_code_info['place_name']) ? $nearest_postal_code_info['place_name'] : '',
+    'place_name' => isset($nearest_postal_code_info['place_name']) ? $nearest_postal_code_info['place_name'] : '',
   );
 
   // Send the location data as a JSON response
