@@ -18,6 +18,7 @@ To use this solution, you'll need the following:
 2. Create a new JavaScript file (e.g., `zipcode.js`) and place it in your theme's `/js/` directory.
 3. Add the provided JavaScript code to `zipcode.js` or the custom JavaScript file you created.
 4. Add the provided php code to `functions.php` file.
+5. Add your own CSS for button and popup.
 
 ## Usage
 
@@ -46,9 +47,6 @@ The `functions.php` file in your WordPress theme plays a crucial role in handlin
 4. `get_nearest_postal_code()`: This function uses the "Zippopotam" API to fetch the nearest postal code information based on the user's country and postal code. The function sends a request to the API and receives the response in JSON format. It checks if the "places" key exists in the response and extracts the "place name" data. The function returns the nearest postal code data as an associative array.
 
 These functions work together to provide the necessary location data required for displaying the popup on the frontend. The JavaScript code utilizes the `ajaxurl` variable to communicate with the `get_location_info_ajax_handler()` function and fetch the relevant location data dynamically.
-
-Feel free to modify these functions as needed to suit your specific requirements or integrate other location-based APIs for gathering location information.
-
 
 ## Customization
 You can customize the specific service areas by modifying the `specificRegions` array in the JavaScript code. Add or remove city/region names as needed to match your desired service areas.
