@@ -53,5 +53,10 @@ You can customize the specific service areas by modifying the `specificRegions` 
 
 Additionally, you can change the URLs for each service area by updating the `specificURL` variable inside the `showLocationPopup` function.
 
+## Screenshot
+
+![Alt Text](https://github.com/zakirsajib/Zipcode/blob/main/Screenshot%202023-07-23%20at%2015.15.25.jpg?raw=true)
+
+
 ## Demo
 https://legacyplumbdev.wpengine.com/
