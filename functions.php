@@ -1,6 +1,5 @@
 <?php
 
-
 function hello_elementor_child_enqueue_scripts() {
 
   wp_enqueue_script('location-popup', get_stylesheet_directory_uri() . '/js/zipcode1.js', array('jquery'), '1.0', true);
@@ -10,15 +9,13 @@ function hello_elementor_child_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
 
-
-
 // AJAX handler to get location information
 add_action('wp_ajax_get_location_info', 'get_location_info_ajax_handler');
 add_action('wp_ajax_nopriv_get_location_info', 'get_location_info_ajax_handler');
+
 function get_location_info_ajax_handler() {
 
 	error_log('get_location_info_ajax_handler called.');
-
 
 	// Include the necessary functions to fetch location and nearest postal code
   $ip_address = get_client_ip();
@@ -93,6 +90,4 @@ function get_nearest_postal_code($country, $postal_code) {
     }
 
     return $decoded_response;
-
-
 }
