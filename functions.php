@@ -13,6 +13,15 @@ add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
 add_action('wp_ajax_get_location_info', 'get_location_info_ajax_handler');
 add_action('wp_ajax_nopriv_get_location_info', 'get_location_info_ajax_handler');
 
+
+/**
+ * AJAX handler function to fetch location information based on the user's IP address.
+ * Calls the get_location_info, get_client_ip, and get_nearest_postal_code functions.
+ * Sends the location data as a JSON response.
+ *
+ * @function get_location_info_ajax_handler
+ * @returns {void}
+ */
 function get_location_info_ajax_handler() {
 
   error_log('get_location_info_ajax_handler called.');
@@ -46,7 +55,12 @@ function get_location_info_ajax_handler() {
   wp_send_json($location_data);
 }
 
-
+/**
+ * Gets the user's IP address from server variables.
+ *
+ * @function get_client_ip
+ * @returns {string} The user's IP address.
+ */
 function get_client_ip() {
 	$ipaddress = '';
 	if (isset($_SERVER['HTTP_CLIENT_IP']))
@@ -67,12 +81,29 @@ function get_client_ip() {
 	return $ipaddress;
 }
 
+/**
+ * Fetches location information using the ipinfo.io API based on the user's IP address.
+ *
+ * @function get_location_info
+ * @param {string} $ip - The user's IP address.
+ * @param {string} $api_key - The API key for ipinfo.io.
+ * @returns {array} An associative array containing location data such as country, city, and region.
+ */
 function get_location_info($ip, $api_key) {
 	$url = "https://ipinfo.io/{$ip}?token={$api_key}";
 	$response = file_get_contents($url);
 	return json_decode($response, true);
 }
 
+/**
+ * Fetches the nearest postal code information based on the user's country and postal code.
+ * Uses the Zippopotam API for this purpose.
+ *
+ * @function get_nearest_postal_code
+ * @param {string} $country - The user's country code.
+ * @param {string} $postal_code - The user's postal code.
+ * @returns {array} An associative array containing nearest postal code information.
+ */
 function get_nearest_postal_code($country, $postal_code) {
 	$url = "http://api.zippopotam.us/{$country}/{$postal_code}";
   $response = file_get_contents($url);

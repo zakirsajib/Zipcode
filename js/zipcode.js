@@ -1,5 +1,15 @@
 jQuery(document).ready(function($) {
-  // Function to display the location popup
+
+/**
+ * Displays a location-based popup when the "My Home Location" button is clicked.
+ * The popup provides relevant information based on the user's city and region.
+ * Specific regions and URLs can be customized for different service areas.
+ *
+ * @function showLocationPopup
+ * @param {Object} locationData - An object containing location information such as country, city, and region.
+ * @returns {void}
+ */
+
   function showLocationPopup(locationData) {
 
   // Check if the region or city is in the specified regions
@@ -46,6 +56,14 @@ jQuery(document).ready(function($) {
 
 } // end showLocationPopup
 
+
+/**
+ * Fetches the user's location data via AJAX and triggers the showLocationPopup function.
+ * This function is called when the "My Home Location" button is clicked.
+ *
+ * @function handlePopupButtonClick
+ * @returns {void}
+ */
 function handlePopupButtonClick() {
   console.log('Button clicked.');
 
