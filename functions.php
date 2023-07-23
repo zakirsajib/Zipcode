@@ -15,7 +15,7 @@ add_action('wp_ajax_nopriv_get_location_info', 'get_location_info_ajax_handler')
 
 function get_location_info_ajax_handler() {
 
-	error_log('get_location_info_ajax_handler called.');
+  error_log('get_location_info_ajax_handler called.');
 
 	// Include the necessary functions to fetch location and nearest postal code
   $ip_address = get_client_ip();
